@@ -3,7 +3,15 @@ require "sinatra"
 require "sinatra/reloader"
 
 get("/") do
-  "Hello World"
+  "
+  <h1>Dice Roll</h1>
+  <ul>
+    <li><a href=\"/dice/2/6\">Roll two 6-sided dice</a></li>
+    <li><a href=\"/dice/2/10\">Roll two 10-sided dice</a></li>
+    <li><a href=\"/dice/1/20\">Roll one 20-sided dice</a></li>
+    <li><a href=\"/dice/5/4\">Roll five 4-sided dice</a></li>
+  </ul>
+  "
 end
 
 get("/zebra") do
@@ -44,15 +52,16 @@ get("/dice/1/20") do
 
 end
 
-get("dice/5/4") do
+get("/dice/5/4") do
   sum = 0
   outcome = "You rolled a "
   for num in 1..5
-    sum = sum + num
-    outcome = outcome + "#{num}"
+    dice = rand(1..4)
+    sum = sum + dice
+    outcome = outcome + "#{dice}"
     if num != 5
       if num == 4
-        outcome = outcome + "and a"
+        outcome = outcome + " and a "
       else
         outcome = outcome + ", "
       end
