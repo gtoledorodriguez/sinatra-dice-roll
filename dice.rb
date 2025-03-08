@@ -23,47 +23,75 @@ get("/giraffe") do
 end
 
 get("/dice/2/6") do
-  first_die = rand(1..6)
-  second_die = rand(1..6)
-  sum = first_die + second_die
+  # first_die = rand(1..6)
+  # second_die = rand(1..6)
+  # sum = first_die + second_die
 	
-  @outcome = "You rolled a #{first_die} and a #{second_die} for a total of #{sum}."
+  # @outcome = "You rolled a #{first_die} and a #{second_die} for a total of #{sum}."
+  @rolls = []    # Create a blank array
+  
+  2.times do    # 2 times...
+    die = rand(1..6)    # Generate a random number
+
+    @rolls.push(die)    # Add the random number to the array 
+  end
 	
   erb(:two_six)
 end
 
 get("/dice/2/10") do
-  first_die = rand(1..10)
-  second_die = rand(1..10)
-  sum = first_die + second_die
-  @outcome = "You rolled a #{first_die} and a #{second_die} for a total of #{sum}."
+  # first_die = rand(1..10)
+  # second_die = rand(1..10)
+  # sum = first_die + second_die
+  # @outcome = "You rolled a #{first_die} and a #{second_die} for a total of #{sum}."
+
+  @rolls = []    # Create a blank array
+
+  2.times do    # 2 times...
+    die = rand(1..10)    # Generate a random number
+
+    @rolls.push(die)    # Add the random number to the array 
+  end
   erb(:two_ten)
 end
 
 get("/dice/1/20") do
-  @die = rand(1..20)
-  @outcome = "You rolled a #{@die}."
+  # @die = rand(1..20)
+  # @outcome = "You rolled a #{@die}."
+  @rolls = []    # Create a blank array
 
+  1.times do    # 1 times...
+    die = rand(1..20)    # Generate a random number
+
+    @rolls.push(die)    # Add the random number to the array 
+  end
   erb(:one_twenty)
 
 end
 
 get("/dice/5/4") do
-  sum = 0
-  @outcome = "You rolled a "
-  for num in 1..5
-    dice = rand(1..4)
-    sum = sum + dice
-    @outcome = @outcome + "#{dice}"
-    if num != 5
-      if num == 4
-        @outcome = @outcome + " and a "
-      else
-        @outcome = @outcome + ", "
-      end
-    end
+  # sum = 0
+  # @outcome = "You rolled a "
+  # for num in 1..5
+  #   dice = rand(1..4)
+  #   sum = sum + dice
+  #   @outcome = @outcome + "#{dice}"
+  #   if num != 5
+  #     if num == 4
+  #       @outcome = @outcome + " and a "
+  #     else
+  #       @outcome = @outcome + ", "
+  #     end
+  #   end
+  # end
+  # @outcome = @outcome + " for a total of #{sum}."
+  @rolls = []    # Create a blank array
+
+  5.times do    # 5 times...
+    die = rand(1..4)    # Generate a random number
+
+    @rolls.push(die)    # Add the random number to the array 
   end
-  @outcome = @outcome + " for a total of #{sum}."
 
   erb(:five_four)
    
