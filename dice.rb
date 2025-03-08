@@ -68,3 +68,15 @@ get("/dice/5/4") do
   erb(:five_four)
    
 end
+
+get("/dice/100/6") do
+  @rolls = []    # Create a blank array
+
+  100.times do    # 100 times...
+    die = rand(1..6)    # Generate a random number
+
+    @rolls.push(die)    # Add the random number to the array 
+  end
+
+  erb(:one_hundred_six)
+end
